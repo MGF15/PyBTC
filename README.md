@@ -12,10 +12,19 @@ Bitcoin Address's Generator (offline) , Base58Check (WIF) Encode/Decode , WIF to
 
 Address 
 -------
+
+	* use custom Private key
 ```Python
 	>>> from PyBTC import Addr
 	>>> Addr('0000000000000000000000000000000000000000000000000000000000000002')
 	'1LagHJk2FyCV2VzrNHVqg3gYG4TSYwDV4m'
+```
+	* or random it 
+```Python
+	>>> from PyBTC import Addr
+	>>> Addr(0)
+	5KcV7Wrm98LekykfQcMphUhBE9rWcmYPJFxoK8wtfSCw1ASneGa
+	'1HMjXzKMLXqettAjezeivTUyzSqQAeAsGz'
 ```
 WIF 
 ------
@@ -45,8 +54,14 @@ Base58 Encode/Decode
 		-d  [wif]        Decode Base58
 		-wa [wif]        WIF to Bitcoin Address
 
-
+	by random Private key
 	PyBTC.py -a 
+	Address :  1LTUNrDmDZTDJxy3PviZxjwDJpvUr2YRu7
+	Privkey :  3427e5ca8a4b34f2c057b6ebd4372b6a86b6c8ad16831cce7cf5b53bcefc637e
+	WIF     :  5JDFqFTFDEfvzuxrQrSrvnrTHJKqeTdcNTxWMCQ2VotLZTfPw7v
+	
+	by custom Private key
+	PyBTC.py -a 0000000000000000000000000000000000000000000000000000000000000002
 	Address :  1LagHJk2FyCV2VzrNHVqg3gYG4TSYwDV4m
 	Privkey :  0000000000000000000000000000000000000000000000000000000000000002
 	WIF     :  5HpHagT65TZzG1PH3CSu63k8DbpvD8s5ip4nEB3kEsreAvUcVfH
@@ -69,6 +84,9 @@ Base58 Encode/Decode
 	ECDSA
 	
 	https://pypi.python.org/pypi/ecdsa
+	
+#Note
+	option -a in script will random private key for you and also when you use Addr(0)
 	
 #License
 
