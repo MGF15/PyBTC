@@ -15,8 +15,10 @@ help = '''
 '''
 
 def rankey():
-	rand = random.randint(0x00000,0xfffff)
-	key = sha256(str(rand).encode('hex')).hexdigest()
+	r = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()"0123456789'
+	rand = random.sample(r,64)
+	k = ''.join(rand)
+	key = sha256(k).hexdigest()
 	return key
 	
 def EncodeB58(text):
