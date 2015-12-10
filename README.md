@@ -93,3 +93,5 @@ Base58 Encode/Decode
 
 This library is free and open-source software released under the MIT license
 	
+#Donate
+	1Mgf15kSR46dh2ZPVRbci7Ckmo1h1ierXF
