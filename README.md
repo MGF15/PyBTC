@@ -1,13 +1,11 @@
-#PyBTC
-
-Coded by MGF15
+# PyBTC
 
 PyBTC it's Simple (script & library) 
 
 Bitcoin Address's Generator (offline) , Base58Check (WIF) Encode/Decode , WIF to Bitcoin Address
 
 
-#Usage (library)
+# Usage (library)
 
 
 Address 
@@ -43,8 +41,9 @@ Base58 Encode/Decode
 	>>> from PyBTC import DecodeB58
 	>>> DecodeB58('5HueCGU8rMjxEXxiPuD5BDku4MkFqeZyd4dZ1jvhTVqvbTLvyTJ')
 	'800c28fca386c7a227600b2fe50b7cae11ec86d3bf1fbe471be89827e19d72aa1d507a5b8d'
-```	
-#Usage (Script)
+```
+
+# Usage (Script)
 
 	
 	PyBTC.py -h
@@ -75,7 +74,7 @@ Base58 Encode/Decode
 	PyBTC.py -wa 5JN7pp4BX6rM8wBEmuisnveuZEUEZwXZXUBeqMGWQQEKwKE1ZNe 
 	Address : 1bu4oRfE2cTM6cnWMp4cRg6rjAxu6mGnV
 	
-#Installation
+# Installation
 
 	Base58
 	
@@ -85,13 +84,10 @@ Base58 Encode/Decode
 	
 	https://pypi.python.org/pypi/ecdsa
 	
-#Note
+# Note
 	option -a in script will random private key for you and also when you use Addr(0)
 	
-#License
+# License
 
 
 This library is free and open-source software released under the MIT license
-	
-#Donate
-	1MGf15D5q6viBTyYDc97vbMHSLxJ6mm1iL
