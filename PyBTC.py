@@ -14,6 +14,8 @@ help = '''
 -wa [wif]        WIF to Bitcoin Address
 '''
 
+priv_fix = '0000000000000000000000000000000000000000000000000000000000000000'
+
 def rankey():
 	r = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()"0123456789'
 	rand = random.sample(r,64)
@@ -45,7 +47,7 @@ def WIF(key):
 	WIF = EncodeB58(r)
 	return WIF
 	
-def Addr(key):
+def Addr(key,compressed = True):
 	if key == 0:
 		key = rankey()
 		print WIF(key)
@@ -53,6 +55,18 @@ def Addr(key):
 	public_key = sha256(('04'+(private_key.get_verifying_key().to_string()).encode('hex')).decode('hex')).hexdigest()
 	RIPEMD = new('ripemd160',(public_key).decode('hex')).hexdigest()
 	dbhash = sha256((sha256(('00'+RIPEMD).decode('hex')).hexdigest()).decode('hex')).hexdigest()
+	pub = (private_key.get_verifying_key().to_string()).encode('hex')[:64]
+	if compressed :
+		
+		k = (private_key.get_verifying_key().to_string()).encode('hex')[64:]
+		if int(k,16) % 2 == 0:
+			k = '02' + pub
+		else:
+			k = '03' + pub
+		#print(k)
+		public_key = sha256(k.decode('hex')).hexdigest()
+		RIPEMD = new('ripemd160',(public_key).decode('hex')).hexdigest()
+
 	o = '00'+RIPEMD+dbhash[:8]
 	address = EncodeB58(o)
 	return address
@@ -64,6 +78,8 @@ try:
 	if opt == '-a':
 		try:
 			key = sys.argv[2]
+			s = priv_fix[:len(priv_fix) - len(str(key))] + str(key)
+			key = s
 		except:
 			key = rankey()
 		address  = Addr(key)
